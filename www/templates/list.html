@@ -12,5 +12,15 @@
   <button ng-click="$log.debug(message)">debug</button>
 </div>
     </ion-list>
+      <ion-list>
+  <button ng-click="query('ipod')">debug</button>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="response in responses" type="item-text-wrap">
+        <img ng-src="{{response.image}}">
+        <h2>{{response.name}}</h2>
+        <p>{{response.lastText}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+
+      </ion-item>
+          </ion-list>
   </ion-content>
 </ion-view>

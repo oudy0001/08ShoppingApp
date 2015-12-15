@@ -1,11 +1,21 @@
 angular.module('starter.controllers', [])
 
-.controller('TestCtrl', ["$scope", "QueryGenerator", "$log", function($scope, QueryGenerator, $log) {
-    var response = QueryGenerator.productSearch("ipod", $scope);
-  $scope.$log = $log;
-  $scope.message = 'Hello World!';
+.controller('TestCtrl', ["$scope", "QueryGenerator", "$log", "$http", function($scope, QueryGenerator, $log, $http) {
+    $scope.query = function(keyword){ $http({
+  method: 'JSONP',
+  url: "https://api.bestbuy.com/v1/products((search="+ keyword +"))?apiKey=z8wap8rkradxspdsnppndagz&callback=JSON_CALLBACK&format=json"
+}).then(function successCallback(response) {
+                $log.log('response success');
+                $log.log(Object.keys(response.data.products[0]));
+                $log.log(response.data.products[0].name);
+        $scope.responses = response.data.products;
+        
+                         });
+};
+    }
+                         
     
-}])
+])
 .controller('LocationCtrl', ["$scope", function($scope) {}])
 .controller('TabCtrl', ["$scope", "$rootScope", "$location", function($scope, $rootScope, $location) {
     return{

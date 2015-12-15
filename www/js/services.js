@@ -13,16 +13,17 @@ angular.module('starter.services', [])
                 $log.log(response);
                 $log.log('response success');
                 $log.log(Object.keys(response.data.products[0]));
-                responseObject = response
+                responseObject = response.data.products
   }, function errorCallback(response) {
                 $log.log(response);
                 $log.log('response fail');
                 responseObject = 'response'
   });
+            
+    return responseObject;
 //                             }
           }
             
-    
 }
     }
 ])
