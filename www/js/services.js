@@ -1,5 +1,32 @@
 angular.module('starter.services', [])
 
+.factory('QueryGenerator', ["$http", '$log', function($http, $log, $scope){
+    return{ 
+        "productSearch": function(keyword, $scope){ 
+            var query = "https://api.bestbuy.com/v1/products(search=" + keyword + "))?apiKey=z8wap8rkradxspdsnppndagz&callback=JSON_CALLBACK&format=json";
+          
+         var responseObject;
+            $http({
+  method: 'JSONP',
+  url: "https://api.bestbuy.com/v1/products((search=ipod))?apiKey=z8wap8rkradxspdsnppndagz&callback=JSON_CALLBACK&format=json"
+}).then(function successCallback(response) {
+                $log.log(response);
+                $log.log('response success');
+                $log.log(Object.keys(response.data.products[0]));
+                responseObject = response
+  }, function errorCallback(response) {
+                $log.log(response);
+                $log.log('response fail');
+                responseObject = 'response'
+  });
+//                             }
+          }
+            
+    
+}
+    }
+])
+
 .factory('Chats', function() {
   // Might use a resource here that returns a JSON array
 

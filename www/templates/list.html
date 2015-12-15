@@ -1,0 +1,16 @@
+<ion-view view-title="Search">
+  <ion-content ng-controller="TestCtrl as test">
+    <ion-list>
+        <h1 ng-click="test.log()">test</h1><div>
+  <p>Reload this page with open console, enter text and hit the log button...</p>
+  <label>Message:
+  <input type="text" ng-model="message" /></label>
+  <button ng-click="$log.log(message)">log</button>
+  <button ng-click="$log.warn(message)">warn</button>
+  <button ng-click="$log.info(message)">info</button>
+  <button ng-click="$log.error(message)">error</button>
+  <button ng-click="$log.debug(message)">debug</button>
+</div>
+    </ion-list>
+  </ion-content>
+</ion-view>

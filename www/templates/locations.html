@@ -1,7 +1,7 @@
-<ion-view view-title="Chats">
-  <ion-content>
+<ion-view view-title="Locations">
+  <ion-content ng-show="isLoggedIn">
     <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap">
         <img ng-src="{{chat.face}}">
         <h2>{{chat.name}}</h2>
         <p>{{chat.lastText}}</p>
@@ -13,4 +13,8 @@
       </ion-item>
     </ion-list>
   </ion-content>
+    <ion-content  ng-hide="isLoggedIn">
+        <h1>Not Logged In</h1>
+        <p>Please log in to view this content</p>
+    </ion-content>
 </ion-view>
