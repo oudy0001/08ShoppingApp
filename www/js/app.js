@@ -38,28 +38,29 @@ $rootScope.isLoggedIn = true;
     .state('tab', {
     url: '/tab',
     abstract: true,
-    templateUrl: 'templates/tabs.html',
-      controller: 'TabCtrl'
+    templateUrl: 'templates/tabs.html'
   })
 
   // Each tab has its own nav history stack:
 
   .state('tab.products', {
     url: '/products',
+      title: 'Products',
     views: {
       'products': {
         templateUrl: 'templates/products.html',
-        controller: 'ChatsCtrl'
+        controller: 'ProductsCtrl'
       }
     }
   })
 
-  .state('tab.locations', {
-      url: '/locations',
+  .state('tab.Locations', {
+      url: '/Locations',
+      title: 'Locations',
       views: {
-        'locations': {
+        'Locations': {
           templateUrl: 'templates/locations.html',
-          controller: 'ChatsCtrl'
+          controller: 'ProductsCtrl'
         }
       }
     })

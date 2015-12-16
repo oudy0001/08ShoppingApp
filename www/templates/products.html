@@ -1,23 +1,19 @@
-<ion-view view-title="Products">
-  <ion-content ng-show="isLoggedIn">
+<ion-view view-title="Search">
+  <ion-content ng-show="isLoggedIn" ng-controller="ProductsCtrl as prod">
       
-      <div class="bar bar-header item-input-inset">
+      <form class="bar bar-header item-input-inset" ng-submit="prod.query(keyword)">
         <label class="item-input-wrapper">
           <i class="icon ion-ios7-search placeholder-icon"></i>
-          <input type="search" placeholder="Search">
+          <input type="search" placeholder="Search" ng-model="keyword">
         </label>
-        <button class="button button-clear icon ion-arrow-right-c">
-        </button>
-      </div>
-      <ion-slide-box on-slide-changed="slideHasChanged($index)">
-  <ion-slide ng-repeat="chat in chats">
-    <div class="card">
-        <img ng-src="{{chat.face}}">
-        <h2>{{chat.name}}</h2>
-        <p>{{chat.lastText}}</p>
-      </div>
-  </ion-slide>
-</ion-slide-box>
+      </form>
+  <ion-slide-box>
+    <ion-slide ng-repeat="response in responses">
+        <img ng-src="{{response.image}}">
+        <h2>{{response.name}}</h2>
+        <p>Sku={{response.sku}}, Price ${{response.salePrice}}</p>
+    </ion-slide>
+  </ion-slide-box>
   </ion-content>
     <ion-content  ng-hide="isLoggedIn">
         <h1>Not Logged In</h1>
